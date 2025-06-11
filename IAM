@@ -1,3 +1,33 @@
 IAM : Identity and access management(Global service)
 
+- Users : people within your org, and they can be grouped.
+- Group can only contain users, not other groups.
 
+- IAM PERMISSIONS:
+    - group or users can be assigned json doc called policies.
+    - policies tell what a user is allowed to do, or what a user in a group is allowed to do.
+    {
+        "version" : "2012-10-17",
+        "Statement" : [
+            {
+                "Effect" : "Allow",
+                "Action" : "ec2:Describe*",
+                "Resource" : "*"
+            },
+
+            {
+                "Effect" : "Allow",
+                "Action" : [
+                    "cloudwatch:ListMetrics",
+                    "cloudwatch:Describe*"
+                ],
+                "Resource" : "*"
+            },
+
+            .
+            .
+            .
+        ]
+    }
+
+- In AWS, you apply the "LEAST PRIVILEGE PRINCIPLE" - dont give more permissions than a user needs.
